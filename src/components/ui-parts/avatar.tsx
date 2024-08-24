@@ -1,3 +1,5 @@
+import { User } from 'lucide-react';
+
 import {
   Avatar as ShadcnAvatar,
   AvatarFallback,
@@ -6,13 +8,16 @@ import {
 
 interface AvatarType {
   image: string;
+  style?: string;
 }
 
-export const Avatar = ({ image }: AvatarType) => {
+export const Avatar = ({ image, style }: AvatarType) => {
   return (
-    <ShadcnAvatar>
+    <ShadcnAvatar className={style}>
       <AvatarImage src={image} />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarFallback>
+        <User />
+      </AvatarFallback>
     </ShadcnAvatar>
   );
 };

@@ -1,7 +1,5 @@
-import Image from 'next/image';
-
-import LoginPage from '@/app/(auth)/login-page';
+import BucketList from '@/app/(feature)/list/page';
 
 export default function Home() {
-  return <LoginPage />;
+  return <BucketList></BucketList>;
 }

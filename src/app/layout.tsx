@@ -1,6 +1,7 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
+
 import { Noto_Sans_JP as FontSans } from 'next/font/google';
 
 import { cn } from '@/lib/utils';

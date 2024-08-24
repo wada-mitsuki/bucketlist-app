@@ -1,4 +1,3 @@
-import { Header } from '@/components/core/header/header';
 import { Sidebar } from '@/components/core/sidebar/sidebar';
 
 interface LayoutProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -16,9 +15,7 @@ export const Layout = ({ children }: LayoutProps) => {
       {/* メインコンテンツ */}
       <div className="flex flex-col grow">
         {/* ヘッダー */}
-        <div className="sticky top-0 z-30 h-14 items-center bg-background sm:static sm:h-auto sm:border-0 sm:bg-transparent">
-          <Header />
-        </div>
+        <div className="sticky top-0 z-30 h-14 items-center bg-background sm:static sm:h-auto sm:border-0 sm:bg-transparent"></div>
 
         {/* メインエリア */}
         <main className="grid  items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-2 xl:grid-cols-2 bg-blue-800">

@@ -1,9 +1,16 @@
 {
-  "cSpell.words": ["Shadcn", "tailwindcss", "bucketlist"],
+  "cSpell.words": [
+    "bucketlist",
+    "Bucketlistitem",
+    "lucide",
+    "Shadcn",
+    "tailwindcss"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.addMissingImports": "explicit"
   },
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "files.associations": {

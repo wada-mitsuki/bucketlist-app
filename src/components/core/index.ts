@@ -1,3 +1,3 @@
 export * from './sidebar/sidebar';
-export * from './header/header';
+export * from './header';
 export * from './layouts/layout';
