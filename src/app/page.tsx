@@ -1,4 +1,4 @@
-import BucketList from '@/app/(feature)/list/page';
+import BucketList from '@/app/(feature)/home/page';
 
 export default function Home() {
   return <BucketList></BucketList>;

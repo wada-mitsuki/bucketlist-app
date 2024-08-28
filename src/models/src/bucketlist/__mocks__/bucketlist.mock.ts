@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { BucketListItem } from '@/models/src/bucketlist/bucketlist';
+import { BucketListItem } from '@/models/src';
 import { createUserMock } from '@/models/src/user/__mocks__';
 
 export const createBucketlistitemMock = (
@@ -8,10 +8,12 @@ export const createBucketlistitemMock = (
 ): BucketListItem => {
   const base: BucketListItem = {
     id: faker.string.uuid(),
-    user: createUserMock(),
+    user_id: faker.string.uuid(),
+    title: faker.company.name(),
     content: faker.company.name(),
     profile_image_url: faker.finance.accountName(),
     created: '2024/01/01',
+    edited: '2024/01/01',
     likes: faker.finance.accountNumber(),
     completed: faker.datatype.boolean(),
   };

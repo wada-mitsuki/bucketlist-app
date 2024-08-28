@@ -4,4 +4,3 @@ index.ts
 next.config.mjs
 postcss.config.js
 **/components/shadcn-ui/ui/*
-layout.tsx

@@ -1,1 +1,1 @@
-export * from './bucketlist';
+export * from './bucket-list-item';

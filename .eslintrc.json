@@ -14,7 +14,7 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["simple-import-sort", "import", "unused-imports"],
+  "plugins": ["simple-import-sort", "import"],
   "rules": {
     "no-restricted-imports": [
       "error",
@@ -30,7 +30,6 @@
     "no-empty-function": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "unused-imports/no-unused-imports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error"

@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import {
   Label,
   PolarGrid,
@@ -44,13 +45,13 @@ export const CompletedChart = ({ userBucketList }: CompletedChartProps) => {
 
   return (
     <div
-      className="flex flex-col bg-white"
+      className="items-center justify-center"
       style={{ minHeight: '250px', minWidth: '250px' }}
     >
-      <div className="flex-1 pb-0">
+      <div className="pb-0 m-auto">
         <ChartContainer
           config={chartConfig}
-          className="aspect-square max-h-[250px]"
+          className="aspect-square max-h-[250px] m-auto"
         >
           <RadialBarChart
             width={100}
@@ -74,7 +75,15 @@ export const CompletedChart = ({ userBucketList }: CompletedChartProps) => {
                 content={({ viewBox }) => {
                   if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
                     return (
-                      <text
+                      <motion.text
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                          delay: 1,
+                          type: 'spring',
+                          stiffness: 260,
+                          damping: 20,
+                        }}
                         x={viewBox.cx}
                         y={viewBox.cy}
                         textAnchor="middle"
@@ -94,7 +103,7 @@ export const CompletedChart = ({ userBucketList }: CompletedChartProps) => {
                         >
                           達成したリスト
                         </tspan>
-                      </text>
+                      </motion.text>
                     );
                   }
                 }}

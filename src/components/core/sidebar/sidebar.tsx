@@ -46,8 +46,8 @@ export const Sidebar = ({ className, playlists }: SidebarProps) => {
           </div>
         </div>
         <div className="px-4 py-2">
-          <h2 className="mb-2 px-2 text-sm font-semibold tracking-tight">
-            私のリスト
+          <h2 className="mb-2 px-2 text-lg font-semibold tracking-tight">
+            わたしのリスト
           </h2>
           <div className="space-y-1">
             <Button variant="ghost" size="sm" className="w-full justify-start">
