@@ -16,6 +16,7 @@ export const createBucketlistitemMock = (
     edited: '2024/01/01',
     likes: faker.finance.accountNumber(),
     completed: faker.datatype.boolean(),
+    opened: faker.datatype.boolean(),
   };
   return {
     ...base,

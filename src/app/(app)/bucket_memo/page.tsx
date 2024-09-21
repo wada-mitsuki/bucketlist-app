@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-import { CreateBucketMemoDrawer } from '@/app/(feature)/bucket_memo/_components/create-bucket-memo-drawer';
+import { CompletedChartDrawer } from '@/app/(app)/bucket_memo/_components';
+import { CreateBucketMemoDrawer } from '@/app/(app)/bucket_memo/_components/create-bucket-memo-drawer';
 import {
   Accordion,
   AccordionContent,
@@ -10,8 +11,8 @@ import {
 import { Badge } from '@/components/shadcn-ui/ui/badge';
 import { Button } from '@/components/shadcn-ui/ui/button';
 import { Skeleton } from '@/components/shadcn-ui/ui/skeleton';
-import { FloatActionButton } from '@/components/ui-parts/float-action-button';
-import { NEXT_ROUTES } from '@/constants/app-routes';
+import { BG_MAIN_STYLE } from '@/config/bg-main-style';
+import { APP_ROUTES } from '@/constants/app-routes';
 import { createBucketListMock } from '@/models/src/bucketlist/__mocks__';
 
 export default function BucketMemo() {
@@ -24,18 +25,7 @@ export default function BucketMemo() {
         <div className="flex items-center gap-2">
           <p className="font-bold">BucketList</p>
         </div>
-        <Button className="bg-red-600 text-white p-2 rounded-lg font-bold">{`達成済み ${completedListCnt} / ${mocklist.length}`}</Button>
-
-        {/* TODO:達成チャート */}
-        {/* <CreateBucketMemoDrawer
-          drawerTrigger={
-            <Button className="bg-red-600 text-white p-2 rounded-lg font-bold">{`達成済み ${completedListCnt} / ${mocklist.length}`}</Button>
-          }
-        >
-          <div className="items-center">
-            <CompletedChart userBucketList={mocklist} />
-          </div>
-        </CreateBucketMemoDrawer> */}
+        <CompletedChartDrawer list={mocklist} />
       </div>
 
       <div>
@@ -49,13 +39,15 @@ export default function BucketMemo() {
           >
             <AccordionItem value={`item-${index}`}>
               <AccordionTrigger className="p-3">
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center pr-2">
                   <p className="text-gray-600 font-bold">No.{index + 1}</p>
                   <p className="text-gray-600 font-bold text-left">
                     {list.title}
                   </p>
                   {list.completed && (
-                    <Badge className="min-w-max bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white">
+                    <Badge
+                      className={`min-w-max bg-gradient-to-r ${BG_MAIN_STYLE}`}
+                    >
                       達成
                     </Badge>
                   )}
@@ -76,6 +68,8 @@ export default function BucketMemo() {
                     <p className="text-sm">2000円</p>
                   </div>
                 </div>
+                {/* 達成 */}
+                {/* <AchieveButton /> */}
 
                 <div className="flex flex-col gap-3 mb-3">
                   <Skeleton className="w-full h-32" />
@@ -84,11 +78,14 @@ export default function BucketMemo() {
                 </div>
 
                 <div className="flex justify-evenly gap-2">
-                  <Button className="ml-auto h-7 w-full bg-gradient-to-tr from-purple-500 via-pink-500 to-red-500 text-white font-bold hover:from-purple-400 hover:via-pink-400 hover:to-red-400 shadow-lg transform transition-transform hover:scale-105">
+                  <Button
+                    disabled={list.completed}
+                    className="ml-auto h-7 w-full bg-gradient-to-tr from-purple-500 via-pink-500 to-red-500 text-white font-bold hover:from-purple-400 hover:via-pink-400 hover:to-red-400 shadow-lg transform transition-transform hover:scale-105"
+                  >
                     達成！
                   </Button>
                   <Link
-                    href={NEXT_ROUTES.BUCKET_MEMO_EDIT}
+                    href={`${APP_ROUTES.BUCKET_MEMO}/${list.id}`}
                     className="w-full ml-auto"
                   >
                     <Button className="h-7 w-full bg-primary">編集</Button>

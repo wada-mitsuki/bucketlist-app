@@ -27,13 +27,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
+          'min-h-screen bg-background font-sans antialiased max-w-screen-md m-auto',
           inter.variable,
         )}
       >
-        <HeaderMenu />
         <div className="mt-12 mb-12">{children}</div>
-        <Footer />
       </body>
     </html>
   );

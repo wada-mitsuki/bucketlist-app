@@ -1,50 +1,17 @@
-import { MainNavItem, SidebarNavItem } from '@/types/nav';
+import { Icons } from '@/components/shadcn-ui/ui/icons';
+import { APP_ROUTES } from '@/constants/app-routes';
+import { FooterNavItem, MainNavItem, SidebarNavItem } from '@/types/nav';
 
 export interface DocsConfig {
-  mainNav: MainNavItem[];
-  sidebarNav: SidebarNavItem[];
-  chartsNav: SidebarNavItem[];
+  footerNav: FooterNavItem[];
 }
 
 export const docsConfig: DocsConfig = {
-  mainNav: [
+  footerNav: [
     {
-      title: 'Documentation',
-      href: '/docs',
-    },
-  ],
-  sidebarNav: [
-    {
-      title: 'Getting Started',
-      items: [
-        {
-          title: 'Introduction',
-          href: '/docs',
-          items: [],
-        },
-      ],
-    },
-  ],
-  chartsNav: [
-    {
-      title: 'Getting Started',
-      items: [
-        {
-          title: 'Introduction',
-          href: '/docs/charts',
-          items: [],
-        },
-        {
-          title: 'Installation',
-          href: '/docs/charts/installation',
-          items: [],
-        },
-        {
-          title: 'Theming',
-          href: '/docs/charts/theming',
-          items: [],
-        },
-      ],
+      title: 'TOP',
+      href: APP_ROUTES.TOP,
+      label: 'みんなの',
     },
   ],
 };
