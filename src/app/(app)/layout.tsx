@@ -14,9 +14,7 @@ export default function ListLayout({
   return (
     <div className="min-h-screen">
       <HeaderMenu />
-      <Suspense fallback={<p>Loading feed...</p>}>
-        <div className="mt-12 mb-16">{children}</div>
-      </Suspense>
+      <div className="mt-12 mb-16">{children}</div>
       <Footer />
     </div>
   );

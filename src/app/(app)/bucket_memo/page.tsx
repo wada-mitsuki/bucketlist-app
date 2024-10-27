@@ -1,7 +1,9 @@
+'use client';
 import Link from 'next/link';
 
 import { CompletedChartDrawer } from '@/app/(app)/bucket_memo/_components';
 import { CreateBucketMemoDrawer } from '@/app/(app)/bucket_memo/_components/create-bucket-memo-drawer';
+import { useBucketMemo } from '@/app/(app)/bucket_memo/_hooks/use-bucket-memo';
 import {
   Accordion,
   AccordionContent,
@@ -11,13 +13,14 @@ import {
 import { Badge } from '@/components/shadcn-ui/ui/badge';
 import { Button } from '@/components/shadcn-ui/ui/button';
 import { Skeleton } from '@/components/shadcn-ui/ui/skeleton';
+import { AchieveButton } from '@/components/ui-parts/button/achieve-button';
 import { BG_MAIN_STYLE } from '@/config/bg-main-style';
 import { APP_ROUTES } from '@/constants/app-routes';
 import { createBucketListMock } from '@/models/src/bucketlist/__mocks__';
 
 export default function BucketMemo() {
   const mocklist = createBucketListMock();
-  const completedListCnt = mocklist.filter((item) => item.completed).length;
+  const { handleClick, showOverlay } = useBucketMemo();
 
   return (
     <div className="w-full">
@@ -30,13 +33,7 @@ export default function BucketMemo() {
 
       <div>
         {mocklist.map((list, index) => (
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full"
-            key={list.id}
-            defaultValue="item-0"
-          >
+          <Accordion type="single" collapsible className="w-full" key={list.id}>
             <AccordionItem value={`item-${index}`}>
               <AccordionTrigger className="p-3">
                 <div className="flex gap-2 items-center pr-2">
@@ -68,8 +65,6 @@ export default function BucketMemo() {
                     <p className="text-sm">2000円</p>
                   </div>
                 </div>
-                {/* 達成 */}
-                {/* <AchieveButton /> */}
 
                 <div className="flex flex-col gap-3 mb-3">
                   <Skeleton className="w-full h-32" />
@@ -78,18 +73,21 @@ export default function BucketMemo() {
                 </div>
 
                 <div className="flex justify-evenly gap-2">
-                  <Button
+                  <AchieveButton
+                    handleClick={handleClick}
+                    showOverlay={showOverlay}
                     disabled={list.completed}
-                    className="ml-auto h-7 w-full bg-gradient-to-tr from-purple-500 via-pink-500 to-red-500 text-white font-bold hover:from-purple-400 hover:via-pink-400 hover:to-red-400 shadow-lg transform transition-transform hover:scale-105"
-                  >
-                    達成！
+                  />
+
+                  <Button className="h-7 w-full bg-primary" asChild>
+                    <Link
+                      href={`${APP_ROUTES.BUCKET_MEMO}/${list.id}`}
+                      className="w-full ml-auto"
+                      scroll={false}
+                    >
+                      編集
+                    </Link>
                   </Button>
-                  <Link
-                    href={`${APP_ROUTES.BUCKET_MEMO}/${list.id}`}
-                    className="w-full ml-auto"
-                  >
-                    <Button className="h-7 w-full bg-primary">編集</Button>
-                  </Link>
                 </div>
               </AccordionContent>
             </AccordionItem>

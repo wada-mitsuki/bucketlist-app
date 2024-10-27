@@ -34,7 +34,7 @@ export const CompletedChart = ({ userBucketList }: CompletedChartProps) => {
     {
       browser: 'lists',
       visitors: completedListCnt,
-      fill: 'var(--color-lists)',
+      fill: chartConfig.lists.color,
     },
   ];
 

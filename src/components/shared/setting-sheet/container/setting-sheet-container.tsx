@@ -1,5 +1,6 @@
 import {
   BookX,
+  Clover,
   FileText,
   LayoutGrid,
   Library,
@@ -32,6 +33,10 @@ export const SettingSheetContainer = React.forwardRef<HTMLDivElement>(
               <div className="w-full border-b flex gap-2 items-center p-2">
                 <Settings className="mr-2 h-4 w-4" />
                 <Label>アカウント設定</Label>
+              </div>
+              <div className="w-full border-b flex gap-2 items-center p-2">
+                <Clover className="mr-2 h-4 w-4" />
+                <Label>作成予定の機能</Label>
               </div>
               <div className="w-full border-b flex gap-2 items-center p-2">
                 <FileText className="mr-2 h-4 w-4" />
