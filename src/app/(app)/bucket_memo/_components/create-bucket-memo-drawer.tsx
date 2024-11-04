@@ -17,7 +17,7 @@ import {
   DrawerTrigger,
 } from '@/components/shadcn-ui/ui/drawer';
 import { FloatActionButton } from '@/components/ui-parts/float-action-button';
-import { bucketListFormSchema } from '@/models/src/bucket-list-form-schema';
+import { bucketListFormSchema } from '@/models/src/bucketlist/schema/bucket-list-form-schema';
 
 interface CreateBucketMemoDrawer {
   drawerTrigger?: React.ReactNode;

@@ -1,4 +1,4 @@
-import { BucketListDetailItem } from '@/models/src/bucketlist';
+import { BucketListItem } from '@/models/src/bucketlist';
 
 // WIP
 export type User = {
@@ -7,5 +7,5 @@ export type User = {
   mail: string;
   profile_image_url: string;
   verified: boolean;
-  BucketList: BucketListDetailItem[];
+  BucketList: BucketListItem[];
 };

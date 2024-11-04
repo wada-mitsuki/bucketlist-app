@@ -19,18 +19,13 @@ import {
 } from '@/components/shadcn-ui/ui/form';
 import { Input } from '@/components/shadcn-ui/ui/input';
 import { Label } from '@/components/shadcn-ui/ui/label';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/shadcn-ui/ui/popover';
 import { Switch } from '@/components/shadcn-ui/ui/switch';
 import { Textarea } from '@/components/shadcn-ui/ui/textarea';
 import { MultipleSelectTags } from '@/components/shared/select-tag/multiple-select-tags';
 import { FormLayout } from '@/components/ui-parts';
 import { DatePicker } from '@/components/ui-parts/form/data-picker';
 import { cn } from '@/lib/utils';
-import { bucketListFormSchema } from '@/models/src/bucket-list-form-schema';
+import { bucketListFormSchema } from '@/models/src/bucketlist/schema/bucket-list-form-schema';
 
 interface BucketlistCreateFormProps {
   /** フォーム管理Props */

@@ -1,45 +1,35 @@
-import { User } from '@/models/src';
+import { User } from '@/models/src/user/user';
 
-// WIP
+/**
+ * バケットリスト（最小単位）
+ */
 export type BucketListItem = {
   id: string;
+  /** ナンバリング */
+  no: string;
+  /** ユーザーID */
   user_id: User['id'];
-  title: string;
-  content: string;
+  /** ユーザー写真 */
   profile_image_url: string;
-  created: string;
-  edited: string;
-  likes: string;
-  completed: boolean;
-  opened: boolean;
-};
-
-export type BucketListDetailItem = {
-  id: string;
-  user_id: User['id'];
+  /** やりたいこと */
   title: string;
+  /** 文章 */
   content: string;
-  profile_image_url: string;
+  /** 作成日 */
   created: string;
+  /** 編集日 */
   edited: string;
-  likes: string;
+  /** いいね */
+  likes: number;
+  /** 達成済みフラグ */
   completed: boolean;
+  /** 公開フラグ */
   opened: boolean;
+  /** 写真 */
+  images: string[];
 };
 
 /**
- * みんなのバケットリスト
+ * バケットリスト
  */
-export type BucketListListItem = {
-  id: string;
-  user_id: User['id'];
-  user_name: User['user_name'];
-  title: string;
-  content: string;
-  profile_image_url: string;
-  created: string;
-  edited: string;
-  likes: string;
-  completed: boolean;
-  opened: boolean;
-};
+export type BucketList = BucketListItem[];

@@ -19,8 +19,8 @@ import { Label } from '@/components/shadcn-ui/ui/label';
 import { Switch } from '@/components/shadcn-ui/ui/switch';
 import { Textarea } from '@/components/shadcn-ui/ui/textarea';
 import { FormLayout } from '@/components/ui-parts';
-import { bucketListFormSchema } from '@/models/src/bucket-list-form-schema';
 import { createBucketlistitemMock } from '@/models/src/bucketlist/__mocks__';
+import { bucketListFormSchema } from '@/models/src/bucketlist/schema/bucket-list-form-schema';
 
 interface EditFormProps {
   initialData?: {

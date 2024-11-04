@@ -3,9 +3,13 @@ import { useParams } from 'next/navigation';
 import QrCodeGenerator from '@/app/(app)/(profile)/_components/qr-code-generator';
 import BucketList from '@/app/(app)/(top)/page';
 import { Button } from '@/components/shadcn-ui/ui/button';
+import { BucketlistList } from '@/components/shared/bucketlist-list/bucketlist-list';
 import { Avatar } from '@/components/ui-parts';
+import { createBucketListMock } from '@/models/src/bucketlist/__mocks__';
 
 export default function UserProfile() {
+  const mocklist = createBucketListMock();
+
   return (
     <div className="w-full">
       <div className="p-4 pb-0">
@@ -17,8 +21,6 @@ export default function UserProfile() {
             <p className="text-gray-600">@johndoe</p>
           </div>
         </div>
-        {/* WIP */}
-        {/* <Button className="ml-auto h-7 w-full">Follow</Button> */}
 
         <div className="flex flex-col gap-4 mt-4 border-gray-300 pb-4">
           <p className="text-gray-800">
@@ -31,7 +33,7 @@ export default function UserProfile() {
         </div>
       </div>
 
-      <BucketList />
+      <BucketlistList bucketList={mocklist} />
     </div>
   );
 }

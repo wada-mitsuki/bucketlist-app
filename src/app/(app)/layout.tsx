@@ -1,10 +1,7 @@
 'use client';
-import { domAnimation, LazyMotion } from 'framer-motion';
-import { Suspense } from 'react';
 
 import { Footer } from '@/components/core/footer/footer';
 import { HeaderMenu } from '@/components/core/header/heder-menu';
-import MotionWrapper from '@/components/core/motion-wrapper/motion-wrapper';
 
 export default function ListLayout({
   children,

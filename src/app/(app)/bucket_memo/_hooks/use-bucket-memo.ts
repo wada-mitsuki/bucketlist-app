@@ -3,7 +3,7 @@ import { valibotResolver } from '@hookform/resolvers/valibot';
 import { useCallback, useState } from 'react';
 import { InferInput } from 'valibot';
 
-import { bucketListFormSchema } from '@/models/src/bucket-list-form-schema';
+import { bucketListFormSchema } from '@/models/src/bucketlist/schema/bucket-list-form-schema';
 
 const DEFAULT_FORM_VALUE = {
   title: '',

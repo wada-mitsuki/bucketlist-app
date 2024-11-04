@@ -22,10 +22,11 @@ export const HeaderWithBackButton = ({
   right,
 }: Props) => {
   return (
-    <header className="flex items-center gap-2 py-3 mb-3">
-      <Button variant="ghost" size="icon" className="size-8" asChild>
+    <header className="flex items-center gap-2 py-3">
+      <Button variant="ghost" size="icon">
         <Link {...link}>
-          <ChevronLeft className="size-4 text-slate-600" />
+          <ChevronLeft className="h-6 w-6" />
+          <span className="sr-only">Back</span>
         </Link>
       </Button>
 
@@ -37,18 +38,5 @@ export const HeaderWithBackButton = ({
 
       <div className="ml-auto">{right}</div>
     </header>
-
-    //   <Button asChild variant="outline" size="icon" className="size-8">
-    //   <Link {...link}>
-    //     <ChevronLeft className="size-4" />
-    //   </Link>
-    // </Button>
-
-    //   <Link onClick={handleBackClick} href="#">
-    //     <div className="text-blue-500 p-2 flex items-center justify-start">
-    //       <ChevronLeft className="w-5 h-5" />
-    //       <Label className="ml-1 "> 戻る</Label>
-    //     </div>
-    //   </Link>
   );
 };
