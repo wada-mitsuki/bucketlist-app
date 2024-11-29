@@ -1,16 +1,18 @@
 'use client';
 import { CirclePlus, Lightbulb, NotebookText, User, Users } from 'lucide-react';
 import { defaultOverrides } from 'next/dist/server/require-hook';
-import Link from 'next/link';
+import { Url } from 'next/dist/shared/lib/router/router';
+import Link, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
+import { UrlObject } from 'url';
 
 import { APP_ROUTES } from '@/constants/app-routes';
 
-interface ScrollToTopProps {
-  route: string;
+type ScrollToTopProps = {
+  href: UrlObject;
   onSmoothScrollToTop?: boolean;
   children: React.ReactNode;
-}
+} & LinkProps;
 
 const displayFooterLabel = (route: string) => {
   switch (route) {
@@ -26,9 +28,10 @@ const displayFooterLabel = (route: string) => {
 };
 
 export const FooterMenu = ({
-  route,
+  href,
   onSmoothScrollToTop = false,
   children,
+  ...linkProps
 }: ScrollToTopProps) => {
   const pathName = usePathname();
   const scrollToTop = () => {
@@ -37,16 +40,20 @@ export const FooterMenu = ({
       behavior: 'smooth',
     });
   };
-
-  const footerLabel = displayFooterLabel(route);
+  console.log('🚀 ~ href.pathname :', href.pathname);
+  console.log('🚀 ~ pathName :', pathName);
 
   return (
-    <Link href={route} onClick={scrollToTop} scroll={!onSmoothScrollToTop}>
+    <Link
+      href={href}
+      scroll={!onSmoothScrollToTop}
+      {...linkProps}
+      onClick={() => scrollToTop()}
+    >
       <div
-        className={`flex flex-col items-center ${pathName === route ? 'text-primary dark:text-white' : ''}`}
+        className={`flex flex-col items-center ${href.pathname === pathName ? 'text-primary dark:text-white' : ''}`}
       >
         {children}
-        {/* <span className="text-xs">{footerLabel}</span> */}
       </div>
     </Link>
   );

@@ -15,10 +15,10 @@ export const createBucketlistitemMock = (
     profile_image_url: faker.finance.accountName(),
     created: '2024/01/01',
     edited: '2024/01/01',
-    likes: faker.datatype.number(),
+    likes: faker.number.int(),
     completed: faker.datatype.boolean(),
     opened: faker.datatype.boolean(),
-    images: [faker.image.imageUrl()],
+    images: [faker.image.url()],
   };
   return {
     ...base,

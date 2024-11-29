@@ -16,15 +16,6 @@ import { AchieveBadge } from '@/components/ui-parts';
 import { Avatar } from '@/components/ui-parts/avatar';
 import { BucketListItem } from '@/models/src';
 
-// interface BucketlistListItemProps {
-//   avatar: string;
-//   displayName: string;
-//   username: string;
-//   timestamp: string;
-//   content: string;
-//   image?: string; // 投稿に画像が含まれる場合
-// }
-
 interface BucketlistListItemProps {
   bucketList: BucketListItem;
 }
@@ -71,6 +62,7 @@ export const BucketlistListItem = ({ bucketList }: BucketlistListItemProps) => {
       <div className="px-2 flex gap-4 justify-start text-gray-500">
         <button className="flex items-center space-x-1 hover:text-red-500">
           <Sparkles className="w-5 h-5" />
+          <span className="likeButton">♥ 100</span>
         </button>
         <button className="flex items-center space-x-1 hover:text-blue-500">
           <PartyPopper className="w-5 h-5" />

@@ -11,10 +11,6 @@ export default function ListLayout({
 }>) {
   return (
     <div className="min-h-screen">
-      <HeaderWithBackButton
-        pageTitle="リスト編集"
-        link={{ href: APP_ROUTES.BUCKET_MEMO }}
-      />
       <div>{children}</div>
     </div>
   );

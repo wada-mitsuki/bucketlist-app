@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev:path": "pathpida --ignorepath .gitignore --output ./src/lib"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
@@ -67,6 +68,7 @@
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
+    "pathpida": "^0.22.0",
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",

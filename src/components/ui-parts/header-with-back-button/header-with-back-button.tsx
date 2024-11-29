@@ -22,7 +22,7 @@ export const HeaderWithBackButton = ({
   right,
 }: Props) => {
   return (
-    <header className="flex items-center gap-2 py-3">
+    <header className="flex items-center py-2">
       <Button variant="ghost" size="icon">
         <Link {...link}>
           <ChevronLeft className="h-6 w-6" />
@@ -36,7 +36,7 @@ export const HeaderWithBackButton = ({
         </div>
       </div>
 
-      <div className="ml-auto">{right}</div>
+      <div className="ml-auto mr-3">{right}</div>
     </header>
   );
 };

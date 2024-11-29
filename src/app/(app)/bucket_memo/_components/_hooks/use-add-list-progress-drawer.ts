@@ -23,9 +23,8 @@ const DEFAULT_FORM_VALUE = {
   memo: '',
 } satisfies InferInput<typeof bucketListFormSchema>;
 
-export const useBucketlistEditForm = () => {
+export const useAddListProgressDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
 
   const onOpenChange = useCallback(
     (nextOpen: boolean) => {
@@ -44,20 +43,15 @@ export const useBucketlistEditForm = () => {
   });
 
   const onSubmit = (data: InferOutput<typeof bucketListFormSchema>) => {
-    console.log(data);
-  };
-
-  const handleClick = () => {
-    setShowOverlay(true);
-    setTimeout(() => {
-      setShowOverlay(false);
-    }, 3000);
+    console.log('🚀 ~ onSubmit ~ data:', data);
+    setIsOpen(false);
+    form.reset();
   };
 
   return {
     form,
     onSubmit,
-    handleClick,
-    showOverlay,
+    isOpen,
+    onOpenChange,
   };
 };

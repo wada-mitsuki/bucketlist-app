@@ -2,6 +2,7 @@
 import Link from 'next/link';
 
 import { CompletedChartDrawer } from '@/app/(app)/bucket_memo/_components';
+import { AddListProgressDrawer } from '@/app/(app)/bucket_memo/_components/add-list-progress-drawer';
 import { CreateBucketMemoDrawer } from '@/app/(app)/bucket_memo/_components/create-bucket-memo-drawer';
 import { useBucketMemo } from '@/app/(app)/bucket_memo/_hooks/use-bucket-memo';
 import {
@@ -73,11 +74,9 @@ export default function BucketMemo() {
                 </div>
 
                 <div className="flex justify-evenly gap-2">
-                  <AchieveButton
-                    handleClick={handleClick}
-                    showOverlay={showOverlay}
-                    disabled={list.completed}
-                  />
+                  <AchieveButton disabled={list.completed} />
+
+                  <AddListProgressDrawer />
 
                   <Button className="h-7 w-full bg-primary" asChild>
                     <Link
@@ -85,7 +84,7 @@ export default function BucketMemo() {
                       className="w-full ml-auto"
                       scroll={false}
                     >
-                      編集
+                      内容を編集
                     </Link>
                   </Button>
                 </div>

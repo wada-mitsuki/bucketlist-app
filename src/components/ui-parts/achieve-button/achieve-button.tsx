@@ -2,20 +2,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
-import { Button } from '@/components/shadcn-ui/ui/button';
+import { Button, ButtonProps } from '@/components/shadcn-ui/ui/button';
 import { BG_MAIN_STYLE } from '@/config/bg-main-style';
+import { cn } from '@/lib/utils';
 
-interface Props {
-  handleClick?: () => void;
+interface Props extends ButtonProps {
   disabled: boolean;
-  showOverlay?: boolean;
 }
 
-export const AchieveButton = ({
-  // handleClick,
-  disabled,
-  // showOverlay,
-}: Props) => {
+export const AchieveButton = ({ disabled, ...props }: Props) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const handleClick = () => {
@@ -30,7 +25,12 @@ export const AchieveButton = ({
       <Button
         onClick={handleClick}
         disabled={disabled}
-        className={`${BG_MAIN_STYLE} w-full h-7 text-white font-bold`}
+        className={cn(
+          'w-full h-7 text-white font-bold',
+          BG_MAIN_STYLE,
+          props.className,
+        )}
+        {...props}
       >
         達成！
       </Button>

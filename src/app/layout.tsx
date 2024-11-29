@@ -4,8 +4,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Noto_Sans_JP as FontSans } from 'next/font/google';
 
-import { HeaderMenu } from '@/components/core';
-import { Footer } from '@/components/core/footer/footer';
 import { cn } from '@/lib/utils';
 
 const inter = FontSans({
