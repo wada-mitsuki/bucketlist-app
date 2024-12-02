@@ -1,15 +1,7 @@
 import { Menu as MenuIcon, Settings } from 'lucide-react';
 
+import { SettingSheet } from '@/components/core/header/components/setting-sheet';
 import { useHeaderScroll } from '@/components/core/header/hooks/useHeaderScroll';
-import { Sidebar } from '@/components/core/sidebar/sidebar';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTrigger,
-} from '@/components/shadcn-ui/ui/sheet';
-import { SettingSheet } from '@/components/shared';
 
 interface SidebarProps {
   className?: string;

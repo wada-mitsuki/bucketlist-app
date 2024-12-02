@@ -1,63 +1,26 @@
 import { valibotResolver } from '@hookform/resolvers/valibot';
-import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import {
-  boolean,
-  InferInput,
-  InferOutput,
-  nonEmpty,
-  object,
-  pipe,
-  regex,
-  string,
-} from 'valibot';
+import { InferInput, InferOutput } from 'valibot';
 
 import { bucketListFormSchema } from '@/models/src/bucketlist/schema/bucket-list-form-schema';
-
-const DEFAULT_FORM_VALUE = {
-  title: '',
-  location: '',
-  date: '',
-  budget: '',
-  public: true,
-  memo: '',
-} satisfies InferInput<typeof bucketListFormSchema>;
+import { createBucketlistitemMock } from '@/models/src/bucketlist/__mocks__';
 
 export const useBucketlistEditForm = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
-
-  const onOpenChange = useCallback(
-    (nextOpen: boolean) => {
-      if (nextOpen) {
-        setIsOpen(true);
-      } else {
-        setIsOpen(false);
-      }
-    },
-    [setIsOpen],
-  );
+  const bucketItem = createBucketlistitemMock();
+  console.log('🚀 ~ useBucketlistEditForm ~ bucketItem:', bucketItem);
 
   const form = useForm<InferInput<typeof bucketListFormSchema>>({
     resolver: valibotResolver(bucketListFormSchema),
-    defaultValues: DEFAULT_FORM_VALUE,
+    defaultValues: bucketItem,
   });
 
-  const onSubmit = (data: InferOutput<typeof bucketListFormSchema>) => {
+  const handleSubmit = (data: InferOutput<typeof bucketListFormSchema>) => {
     console.log(data);
-  };
-
-  const handleClick = () => {
-    setShowOverlay(true);
-    setTimeout(() => {
-      setShowOverlay(false);
-    }, 3000);
   };
 
   return {
     form,
-    onSubmit,
-    handleClick,
-    showOverlay,
+    handleSubmit,
+    bucketItem,
   };
 };

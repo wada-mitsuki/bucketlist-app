@@ -40,8 +40,6 @@ export const FooterMenu = ({
       behavior: 'smooth',
     });
   };
-  console.log('🚀 ~ href.pathname :', href.pathname);
-  console.log('🚀 ~ pathName :', pathName);
 
   return (
     <Link

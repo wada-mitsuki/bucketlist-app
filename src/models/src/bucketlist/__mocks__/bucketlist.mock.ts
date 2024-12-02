@@ -13,12 +13,16 @@ export const createBucketlistitemMock = (
     title: faker.company.name(),
     content: faker.company.name(),
     profile_image_url: faker.finance.accountName(),
-    created: '2024/01/01',
-    edited: '2024/01/01',
+    created: '2024-01-01',
+    edited: '2024-01-02',
     likes: faker.number.int(),
     completed: faker.datatype.boolean(),
     opened: faker.datatype.boolean(),
     images: [faker.image.url()],
+    location: faker.location.city(),
+    date: '2024-01-02',
+    memo: faker.lorem.sentence(),
+    budget: 10000,
   };
   return {
     ...base,

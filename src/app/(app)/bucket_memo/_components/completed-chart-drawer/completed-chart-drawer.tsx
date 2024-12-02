@@ -15,21 +15,10 @@ import { BG_MAIN_STYLE } from '@/config/bg-main-style';
 import { BucketListItem } from '@/models/src';
 
 interface CreateBucketMemoDrawer {
-  drawerTrigger?: React.ReactNode;
-  openContents?: React.ReactNode;
-  header?: React.ReactNode;
-  children?: React.ReactNode;
-  footer?: React.ReactNode;
   list: BucketListItem[];
 }
 
-export const CompletedChartDrawer = ({
-  drawerTrigger,
-  header,
-  children,
-  footer,
-  list,
-}: CreateBucketMemoDrawer) => {
+export const CompletedChartDrawer = ({ list }: CreateBucketMemoDrawer) => {
   const completedListCnt = list.filter((item) => item.completed).length;
 
   return (

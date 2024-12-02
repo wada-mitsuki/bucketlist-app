@@ -1,14 +1,6 @@
 'use client';
-import { fi } from '@faker-js/faker';
-import { format, setDate } from 'date-fns';
-import { CalendarIcon } from 'lucide-react';
-import React, { useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
-import { date, InferInput } from 'valibot';
-
-import { useBucketlistCreateForm } from '@/app/(app)/bucket_memo/_components/_hooks/use-bucketlist-create-form';
-import { Button } from '@/components/shadcn-ui/ui/button';
-import { Calendar } from '@/components/shadcn-ui/ui/calendar';
+import { InferInput } from 'valibot';
 import {
   Form,
   FormControl,
@@ -18,14 +10,12 @@ import {
   FormMessage,
 } from '@/components/shadcn-ui/ui/form';
 import { Input } from '@/components/shadcn-ui/ui/input';
-import { Label } from '@/components/shadcn-ui/ui/label';
+
 import { Switch } from '@/components/shadcn-ui/ui/switch';
 import { Textarea } from '@/components/shadcn-ui/ui/textarea';
-import { MultipleSelectTags } from '@/components/shared/select-tag/multiple-select-tags';
-import { FormLayout } from '@/components/ui-parts';
 import { DatePicker } from '@/components/ui-parts/form/data-picker';
-import { cn } from '@/lib/utils';
 import { bucketListFormSchema } from '@/models/src/bucketlist/schema/bucket-list-form-schema';
+import { AutosizeTextarea } from '@/components/shadcn-ui/ui/auto-size-text-area';
 
 interface BucketlistCreateFormProps {
   /** フォーム管理Props */
@@ -49,9 +39,12 @@ export default function BucketlistCreateForm({
                 >
                   やりたいこと
                 </FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
+                <div>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage className="text-left" />
+                </div>
               </FormItem>
             )}
           />
@@ -63,15 +56,8 @@ export default function BucketlistCreateForm({
                 <div className="min-w-[100px] text-sm font-medium text-slate-500 text-left">
                   日程
                 </div>
-                {/* <FormLabel
-                  
-                  className="min-w-[100px] text-sm font-medium text-slate-500 text-left"
-                >
-                  日程
-                </FormLabel> */}
                 <FormControl>
                   <DatePicker value={field.value} onSelect={field.onChange} />
-                  {/* <Input {...field} /> */}
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -134,7 +120,10 @@ export default function BucketlistCreateForm({
                   メモ
                 </FormLabel>
                 <FormControl>
-                  <Textarea {...field} className="h-30" />
+                  <AutosizeTextarea
+                    {...field}
+                    className="h-30 whitespace-pre-wrap"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

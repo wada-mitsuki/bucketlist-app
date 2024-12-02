@@ -13,20 +13,28 @@ export type BucketListItem = {
   profile_image_url: string;
   /** やりたいこと */
   title: string;
-  /** 文章 */
+  /** 達成後の感想 */
   content: string;
-  /** 作成日 */
-  created: string;
-  /** 編集日 */
-  edited: string;
+  /** 場所 */
+  location: string;
+  /** 予定日 */
+  date: string;
+  /** メモ */
+  memo: string;
+  /** 予算 */
+  budget: number;
   /** いいね */
   likes: number;
   /** 達成済みフラグ */
   completed: boolean;
-  /** 公開フラグ */
+  /** 全体公開フラグ */
   opened: boolean;
   /** 写真 */
   images: string[];
+  /** 作成日 */
+  created: string;
+  /** 編集日 */
+  edited: string;
 };
 
 /**

@@ -28,15 +28,15 @@ export const Footer = () => {
         <FooterMenu href={pagesPath.top.$url()} onSmoothScrollToTop>
           <Users />
         </FooterMenu>
+        <FooterMenu href={pagesPath.search.$url()} onSmoothScrollToTop>
+          <Lightbulb />
+        </FooterMenu>
         <FooterMenu href={pagesPath.bucket_memo.$url()} onSmoothScrollToTop>
           <NotebookText />
         </FooterMenu>
         {/* <FooterMenu route={} onSmoothScrollToTop>
           <CirclePlus />
           </FooterMenu> */}
-        <FooterMenu href={pagesPath.search.$url()} onSmoothScrollToTop>
-          <Lightbulb />
-        </FooterMenu>
         <Link href={path.path}>
           <CircleUserRound />
         </Link>

@@ -28,10 +28,11 @@
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/no-unused-vars": 0,
     "no-empty-function": "error",
-    "simple-import-sort/imports": "error",
+    // "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error"
+    // "unused-imports/no-unused-imports": "error"
   }
 }
